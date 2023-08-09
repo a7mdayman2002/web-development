@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Forget Password</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+	</script>
+	<link rel="stylesheet" href="./css/style.css">
+
+	
+</head>
+<body>
+	<div class="content">
+		<header>
+			<img id ="logo" src="Bakery store\red\linkedin_banner_image_1.png">
+			<a href="/data" class="home">Home</a>
+			
+			<div class="dropdown">
+				<button class="dropbtn">Dropdown 
+				  <i class="fa fa-caret-down"></i>
+				</button>
+				<div class="dropdown-content">
+				  <a href="/">Register</a>
+				  <a href="/order">My Orders</a>
+				</div>
+			  </div> 
+		</header>
+		<footer>
+			<div class="foot">
+				<a href="/contact" class="conus">contact us</a>
+				<a href="/about" class="aboutus">about us</a>
+			</div>
+		</footer>
+	  </div>
+	  <div class="loginbox">
+		<img src="signs/account.png" class="avatar">
+		<h1 class="h1log">delete account </h1>
+	
+		
+			<div class="form-group">
+				<form id="form3" method="post">
+					<p id="username11">email</p>
+					<input type="text"id="username1"name="email" placeholder="E-mail" required="" class="form-control"><br/>
+					<p id="pass11">Password</p>
+					<input type="password" id="pass1" name="password" placeholder="Password" required="" class="form-control"><br/>
+					<input type="submit" id="submit" value="delete" class="btn btn-success">
+				</form>
+			</div>
+			<div  class="mssg bg-danger">
+				<span id="check"></span>
+				</div>
+				<div id="LangTable"><a href="/data" id="aa"></a>
+				</div>
+		</div>
+
+		
+
+</body>
+<script type="text/javascript">
+	$(document).ready(function(){
+
+		$( "#form3" ).submit(function(event) {
+
+			event.preventDefault();
+
+			$.ajax({
+				type: 'DELETE',
+				url: '/delete',
+				data: $('#form3').serialize(),
+				dataType: "json",
+				success: function(response){
+					//alert("a");
+					//console.log(response.Success);
+					$('#form3')[0].reset();
+					//alert("abc");
+					document.getElementById("check").innerHTML=response.Success;
+
+					setTimeout(function(){
+						document.getElementById("check").innerHTML="";
+					},3000);
+					if (response.Success=="account deleted") {
+						document.getElementById("aa").click();
+					};
+				},
+				error: function() {
+				}
+			})
+		});
+
+	});
+</script>
+</html>

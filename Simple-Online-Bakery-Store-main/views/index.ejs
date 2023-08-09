@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Registration</title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+	</script>
+	<link rel="stylesheet" href="./css/style.css">
+
+
+	
+</head>
+<body>
+	<div class="content">
+		<header>
+			<img id ="logo" src="Bakery store\red\linkedin_banner_image_1.png">
+			<a href="/data" class="home">Home</a>
+			
+			
+			<div class="dropdown">
+				<button class="dropbtn">Dropdown 
+				  <i class="fa fa-caret-down"></i>
+				</button>
+				<div class="dropdown-content">
+				  
+				  <a href="/">Register</a>
+				  <a href="/order">My Orders</a>
+				  <a href="/delete">delete</a>
+				</div>
+			  </div> 
+		</header>
+		<footer>
+			<div class="foot">
+				<a href="/contact" class="conus">contact us</a>
+				<a href="/about" class="aboutus">about us</a>
+			</div>
+		</footer>
+	  </div>
+		<div class="regbox">
+		<img src="signs/account.png" class="regavatar">
+		<h1 class="h1log">Registration </h1>
+		<div class="form-group">
+			<form id="form1" method="post">
+				<p id="username11">Email:</p>
+				<input type="email" id="email" name="email" placeholder="E-mail" required="" class="form-control">
+				<p id="username11">Username</p>
+				<input type="text" id="username" name="username" placeholder="Username" required="" class="form-control">
+				<p id="pass11">Password</p>
+				<input type="password" id="pass" name="password" placeholder="Password" required="" class="form-control">
+				<p id="username11">Confirm Password:</p>
+				<input type="password"id="conpass" name="passwordConf" placeholder="Confirm Password" required="" class="form-control"><br/>
+				<input type="submit" id="submit1" value="Register" class="btn btn-success">
+				<a href="/login" id="aaa">Already Registered!</a>
+				<div class="mssg bg-danger">
+					<span id="check"></span>
+				</div>
+				<div id="LangTable"><a href="/login" id="aa"></a>
+				</div>
+			</form>
+		</div>
+	</div>
+		
+	
+</body>
+<script type="text/javascript">
+	$(document).ready(function(){
+
+		$( "#form1" ).submit(function(event) {
+			event.preventDefault();
+
+			$.ajax({
+				type: 'POST',
+				url: '/',
+				data: $('#form1').serialize(),
+				dataType: "json",
+				success: function(response){
+					//alert("a");
+					//console.log(response.Success);
+					$('#form1')[0].reset();
+
+					document.getElementById("check").innerHTML=response.Success;
+						 //ADD THIS CODE
+						 setTimeout(function(){
+							 document.getElementById("check").innerHTML="";
+						 },3000);
+						 if (response.Success=="You are regestered,You can login now.") {
+							 document.getElementById("aa").click();
+						 };
+					 },
+					 error: function() {
+					 }
+				 })
+		});
+	});
+</script>
+</html>

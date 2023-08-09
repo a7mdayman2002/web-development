@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>home</title>
+		<link rel="stylesheet" href="./css/style.css">
+	  </head>
+	  <body>    
+		<header>
+		<img id ="logo" src="Bakery store\red\linkedin_banner_image_1.png">
+		<a href="/login" class="login">Login</a>
+			
+		
+		
+		<div class="dropdown">
+			<button class="dropbtn">Dropdown 
+			  <i class="fa fa-caret-down"></i>
+			</button>
+			<div class="dropdown-content">
+			  <a href="/">Register</a>
+			  <a href="/order">My Orders</a>
+			</div>
+		  </div> 
+	  </header>
+		  <div id="main_body">
+		  <div id="sidebar">
+			<div class="sidebar-link"><button ><a href="#" id="side">offers</a></button></div>
+			<div class="sidebar-link"><button ><a href="/bake" id="side">Bakery</a></button></div>
+			<div class="sidebar-link"><button ><a href="/bisc" id="side">kahk</a></button></div>
+		   
+		  </div>
+		  <div id="body">
+			<div class="slideshow-container">
+			  <div class="slide">
+				<img src="Bakery store/slide3.jpg">
+			  </div>
+			  <div class="slide">
+				<img src="Bakery store/slide5.jpg">
+			  </div>
+			  <div class="slide">
+				<img src="Bakery store/slide4.jpg">
+			  </div>
+			</div>
+			<section class="spacecontainer"></section>
+	  
+			<section class="container section">
+			  <h2><b>Eclairs, tarts & more</b><br><br>
+				Limited quantities made fresh daily. <br>Every day is different, with new varieties, flavors, and specialties.<br> Pop-in the shop to see our latest offerings!</h2>
+					<img id="b1" src="Bakery store/b1.jpg" >
+					
+				
+			</section>
+			<section class="container section">
+			  <img id="b2" src="Bakery store/b2.jpg" >
+			  <h2 id="h2b2"><b>Generate excitement</b><br><br>
+				What's something exciting your business offers? Say it here. healthy food Bakery Fresh Cake and pastries</h2>
+			</section>
+			<section class="container section">
+			  <h2><b>Seasonal Specials</b><br><br>
+				Each new season brings exciting and limited items!<Br>
+				Rotating throughout the year, enjoy holiday favorites and
+				pastries and treats<Br> made with fresh seasonal produce.</h2>
+			  <img id="b3" src="Bakery store/b3.jpeg" >
+			  
+			</section>
+	  
+		  </div>
+		  </div>
+		  
+		  <footer>
+			<div class="foot">
+				<a href="/contact" class="conus">contact us</a>
+				<a href="/about" class="aboutus">about us</a>
+			</div> </footer>
+		
+	</div>
+</body>
+<script>var slideIndex = 0;
+	var slides = document.getElementsByClassName("slide");
+	
+	showSlides();
+	
+	// function to display the current slide
+	function showSlides() {
+	  for (var i = 0; i < slides.length; i++) {
+		slides[i].style.display = "none";
+	  }
+	  slideIndex++;
+	  if (slideIndex > slides.length) {
+		slideIndex = 1;
+	  }
+	  slides[slideIndex - 1].style.display = "block";
+	  setTimeout(showSlides, 3000); // Change image every 3 seconds
+	}
+	</script>
+</html>
